@@ -1,0 +1,23 @@
+Description: fix tsconfig for tests
+Author: Yadd <yadd@debian.org>
+Forwarded: not-needed
+Last-Update: 2022-08-31
+
+--- a/tsconfig.json
++++ b/tsconfig.json
+@@ -1,5 +1,6 @@
+ {
+ 	"compilerOptions": {
++		"moduleResolution": "node",
+ 		"declaration": true,
+ 		"esModuleInterop": true,
+ 		"module": "UMD",
+@@ -8,7 +9,7 @@
+ 		"outDir": ".",
+ 		"sourceMap": true,
+ 		"strict": true,
+-		"target": "ES5"
++		"target": "esnext"
+ 	},
+ 	"include": [
+ 		"src/index.ts"

@@ -2,3 +2,7 @@
 
 %:
 	dh $@
+
+override_dh_auto_build:
+	tsc --module esnext --target es2017 --outDir lib/esm
+	rollup lib/esm/index.js --format umd --name compareVersions --sourcemap -o lib/umd/index.js

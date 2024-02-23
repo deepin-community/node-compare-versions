@@ -1,0 +1,17 @@
+Description: fix type issues with typescript 4.9.5
+Author: Ananthu C V <weepingclown@disroot.org>
+Forwarded: not-needed
+Last-Update: 2023-11-16
+Index: node-compare-versions/src/index.ts
+===================================================================
+--- node-compare-versions.orig/src/index.ts
++++ node-compare-versions/src/index.ts
+@@ -20,7 +20,7 @@ export const compareVersions = (v1: stri
+ 
+   // validate pre-release
+   if (p1 && p2) {
+-    return compareSegments(p1.split('.'), p2.split('.'));
++    return compareSegments(p1.split('.') as RegExpMatchArray, p2.split('.') as RegExpMatchArray);
+   } else if (p1 || p2) {
+     return p1 ? -1 : 1;
+   }
